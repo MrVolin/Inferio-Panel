@@ -1,4 +1,5 @@
 import "../styles/app.css";
+import "../styles/inferio-theme.css";
 import "../styles/fonts-mono.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "@tanstack/react-router";
@@ -26,7 +27,6 @@ const queryClient = new QueryClient({
 
 const router = createAppRouter(queryClient);
 
-// Apply the saved theme before the first render so navigation never resets it.
 setTheme(getTheme());
 
 window.addEventListener("mikan:unauthorized", () => {
@@ -35,15 +35,11 @@ window.addEventListener("mikan:unauthorized", () => {
   void router.navigate({ to: "/login", search: { next: router.state.location.href } });
 });
 
-// Dictionaries load before the first render: t() stays synchronous everywhere. Pages read
-// their texts at render time and subscribe to the language themselves (see page() in
-// router.tsx), so a switch redraws them without remounting anything.
 void initI18n(adminDicts).then(() => {
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <ErrorBoundary>
         <QueryClientProvider client={queryClient}>
-          {/* Motion follows the system's "reduce motion" like the CSS animations do. */}
           <MotionConfig reducedMotion="user">
             <ToastProvider>
               <Atmosphere />
