@@ -1,0 +1,81 @@
+/* Inferio branding layer.
+ * IMPORTANT: this file changes colors only. Layout, spacing, typography, motion and components
+ * intentionally remain inherited from Mikan's original stylesheet.
+ */
+:root {
+  --bg: #f7f2ff;
+  --mikan-50: #f5efff;
+  --mikan-100: #eadcff;
+  --mikan-200: #d7bcff;
+  --mikan-400: #a56cff;
+  --mikan-500: #8b5cf6;
+  --mikan-600: #7c3aed;
+  --mikan-700: #6d28d9;
+  --fill: #16121f;
+  --surface: rgba(255,255,255,.8);
+  --surface-soft: rgba(255,255,255,.55);
+  --surface-hover: rgba(255,255,255,.92);
+  --surface-solid: #ffffff;
+  --glass: rgba(255,255,255,.6);
+  --glass-strong: rgba(255,255,255,.86);
+  --glass-highlight: rgba(255,255,255,.9);
+  --glass-edge: rgba(255,255,255,.78);
+}
+
+html[data-theme="midnight"] {
+  --fill: #a78bfa;
+  --mikan-50: #261d3b;
+  --mikan-100: #34254f;
+  --mikan-200: #4c3570;
+  --mikan-400: #c4b5fd;
+  --mikan-500: #a78bfa;
+  --mikan-600: #8b5cf6;
+  --mikan-700: #c4b5fd;
+  --glass-edge: rgba(167,139,250,.18);
+  --glass-highlight: rgba(167,139,250,.18);
+}
+
+html[data-theme="ocean"],
+html[data-theme="sakura"],
+html[data-theme="forest"] {
+  --mikan-50: #f5efff;
+  --mikan-100: #eadcff;
+  --mikan-200: #d7bcff;
+  --mikan-400: #a56cff;
+  --mikan-500: #8b5cf6;
+  --mikan-600: #7c3aed;
+  --mikan-700: #6d28d9;
+}
+
+/* Keep Mikan's atmosphere exactly as designed, changing only its warm accent colors. */
+.glow-warm {
+  background:
+    radial-gradient(38% 50% at 18% 13%, rgba(139,92,246,.52), rgba(139,92,246,0) 70%),
+    radial-gradient(33% 42% at 52% 8%, rgba(192,132,252,.34), rgba(192,132,252,0) 70%),
+    radial-gradient(38% 50% at 12% 90%, rgba(167,139,250,.38), rgba(167,139,250,0) 70%);
+}
+
+.glow-cool {
+  background:
+    radial-gradient(38% 50% at 83% 25%, rgba(167,139,250,.34), rgba(167,139,250,0) 70%),
+    radial-gradient(46% 54% at 87% 88%, rgba(139,92,246,.28), rgba(139,92,246,0) 70%);
+}
+
+.search-field:focus-within,
+.input:focus,
+.rules-editor:focus-within,
+.config-editor:focus-within {
+  box-shadow: 0 0 0 3px rgba(124,58,237,.18);
+}
+
+.update-chip {
+  color: var(--mikan-700);
+  background: rgba(139,92,246,.10);
+  border-color: rgba(139,92,246,.30);
+}
+.update-chip:hover {
+  background: rgba(139,92,246,.16);
+  border-color: rgba(139,92,246,.50);
+}
+
+.avatar { --av: #ede7f8; }
